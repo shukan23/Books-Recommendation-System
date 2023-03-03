@@ -1,0 +1,116 @@
+/* a{
+    background-color: lightblue;
+    border: solid 2px goldenrod;
+    padding:  5px;
+    margin-left: 5f0px;
+    margin-top: 20px;
+    text-decoration: none;
+    
+}
+
+input{
+    margin-left: 50px;
+    margin-bottom: 30px;
+    height: 40px;
+    border:2px gold  solid;
+    width : 230px
+} */
+body{
+  background:   white;
+}
+
+legend{
+
+}
+.site-header .navbar-nav .nav-link {
+  color: white;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: turquoise
+}
+
+.div1{
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 50px;
+  margin-left: 25px;
+}
+
+
+
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+/* .bg-steel {
+  background-color: pink;
+} */
+
+.card{
+  margin-right: px;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+/* .content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+} */
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #03080c;
+  text-decoration: none;
+}
+
+.history{
+  /* width: 200px; */
+  /* background-color: red; */
+}
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+/* .article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+} */
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+/* .article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+} */
+
+/* .account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+} */
+/*   
+.account-heading {
+  font-size: 2.5rem;
+} */

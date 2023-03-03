@@ -1,0 +1,14 @@
+Run following commands to run the project on directory which contains server.py 
+
+sudo apt install python3.10-venv
+python3 -m venv venv
+. venv/bin/activate
+python3 server.py
+
+
+existing account: 
+Id : admintest@example.com
+pw : test123
+
+Database can be visulized using SQLite
+Passwords stored in database are in hash form.

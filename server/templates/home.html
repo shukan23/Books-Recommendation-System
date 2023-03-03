@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Book Recommender System</title>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='main.css') }}"
+    />
+  </head>
+  <style>
+    .text-purple {
+      color: purple;
+    }
+  </style>
+  <body>
+
+<!-- recommended books -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-9">
+  
+    <div >
+     
+
+        {% if recommended %}  
+            <legend>Recommended for you</legend>
+              {% for i in recommended %}
+              <a href="{{ url_for('openbook',isbn1=i.isbn) }}">
+              <div class="col-md-4" style="margin-top: 50px" width="250px">
+              <div class="card" style="width: 23rem;" >
+                <img class="card-img-top" width="50%" height="300px" src={{i.img_l}} alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{i.title[:20]}}</h5>
+                  <p class="card-text">{{i.author[:20]}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">{{i.rating}} / 5  ({{i.raters}})</li>
+                  <!-- <li class="list-group-item">{{i.raters}}</li> -->
+                  <!-- <li class="list-group-item">Vestibulum at eros</li> -->
+                </ul>
+                <!-- <div class="card-body">
+                  <a href="#" class="card-link">Card link</a>
+                  <a href="#" class="card-link">Another link</a>
+                </div> -->
+              </div>
+              </div>
+              </a>
+              {% endfor %}
+
+              <div class="col-md-4" style="margin-top: 50px ; width:100% ; height:500px ;background-color: white;" ></div>
+            {% else %}
+            <!-- <div class="alert alert-info alert-dismissible fade show">
+              <strong>No Recommendations yet</strong>
+          </div> -->
+            {% endif %}  
+  </div>
+
+
+
+
+
+
+
+
+<br/>
+<br/>
+
+
+
+<!-- book from  view history -->
+    <div class="history">
+      
+        
+            {% if history %}  
+            <legend>Books you have viewed</legend>
+              {% for i in history %}
+              <a href="{{ url_for('openbook',isbn1=i.isbn) }}">
+              <div class="col-md-4" style="margin-top: 50px ; width:300px ; background-color: white;" >
+              <div class="card" style="width: 23rem;" >
+                <img class="card-img-top" width="50%" height="300px" src={{i.img_l}} alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{i.title[:20]}}</h5>
+                  <p class="card-text">{{i.author[:20]}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">{{i.rating}} / 5  ({{i.raters}})</li>
+                  <!-- <li class="list-group-item">{{i.raters}}</li> -->
+                  <!-- <li class="list-group-item">Vestibulum at eros</li> -->
+                </ul>
+                <!-- <div class="card-body">
+                  <a href="#" class="card-link">Card link</a>
+                  <a href="#" class="card-link">Another link</a>
+                </div> -->
+              </div>
+            </div>
+            
+          </a>
+          {% endfor %}
+
+          
+          {% if history|length%3 == 1 %}
+        
+            <div class="col-md-4" style="margin-top: 50px ; width:100% ; height:500px ;background-color: white;" ></div>
+            <div class="col-md-4" style="margin-top: 50px ; width:100% ; height:500px ;background-color: white;" ></div>
+          
+          {% endif %}
+
+          {% if history|length%3 == 2 %}
+        
+            <div class="col-md-4" style="margin-top: 50px ; width:100% ; height:500px ;background-color: white;" ></div>
+          
+          {% endif %}
+
+          {% endif %}
+          
+          
+        
+  </div>  
+
+
+
+
+  <!-- books in general -->
+    <div >
+    
+            {% if books %}  
+            <legend>More books</legend>
+              {% for i in books %}
+              <a href="{{ url_for('openbook',isbn1=i.isbn) }}">
+              <div class="col-md-4" style="margin-top: 50px" width="250px">
+              <div class="card" style="width: 23rem;" >
+                <img class="card-img-top" width="50%" height="300px" src={{i.img_l}} alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{i.title[:20]}}</h5>
+                  <p class="card-text">{{i.author[:20]}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">{{i.rating}} / 5  ({{i.raters}})</li>
+                  <!-- <li class="list-group-item">{{i.raters}}</li> -->
+                  <!-- <li class="list-group-item">Vestibulum at eros</li> -->
+                </ul>
+                <!-- <div class="card-body">
+                  <a href="#" class="card-link">Card link</a>
+                  <a href="#" class="card-link">Another link</a>
+                </div> -->
+              </div>
+              </div>
+              </a>
+              {% endfor %}
+            {% else %}
+            <div class="alert alert-info alert-dismissible fade show">
+              <strong>No search results</strong>
+          </div>
+            {% endif %}
+          </div>
+  </div>
+
+
+  <div class="col-lg-2" style="margin-left: 75px; text-align: right;  ">
+    
+    {% for i in ads %}
+          <div class="card" style="margin-top: 160px;">&#x2715<img style=" margin: auto; width: 150px; border-style: solid ;border:3px"  src="{{i.Image}}"/>
+            <h4 style=" text-align: center;  ">{{i.Name[:20]}}</h4>
+            <h3 style=" text-align: center;  ">{{i.Price}}</h3>
+          </div>  
+    {% endfor %}
+  </div>
+  </div>
+  </div>
+
+<!-- </div>
+</div> -->
+</body>
+</html>
+{% endblock %}
+

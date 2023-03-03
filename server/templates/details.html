@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="content-section " style="margin-top: 50px;">
+<form class="details" action="/details" method="post">
+    <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Sign Up Details</legend>
+
+        <div class="form-group ">
+    <input class="form-control form-control" name="email" id="mail" type="text"placeholder="Email" value="{{email}}" readonly />
+</div>
+<div class="form-group ">
+    <input class="form-control form-control" name="passw" type="text"placeholder="Password" value="{{password}}" readonly />
+    </div>
+    <div class="form-group ">
+
+    <input class="form-control form-control" name="fname" type="text"placeholder="First Name" required/>
+    </div>  
+    <div class="form-group ">
+    <input class="form-control form-control" name="lname" type="text"placeholder="Last Name" required/></div> 
+    <div class="form-group ">
+    <input  class="form-control form-control" name="dob" type="date"placeholder="Date Of Birth" required/></div> 
+    <div class="form-group ">
+    <input  class="form-control form-control" name="adline1" type="text"placeholder="Address Line 1" required /></div> 
+    <div class="form-group ">
+    <input class="form-control form-control" name="city" type="text"placeholder="City" required />
+    </div> 
+    <div class="form-group ">
+    <input class="form-control form-control" name="zip" type="text"placeholder="Zip" required />
+</div> 
+<div class="form-group ">
+    <input  class="form-control form-control" name="state" type="text"placeholder="State" required />
+</div> 
+
+<div class="form-group ">
+    <input class="form-control form-control" name="country" type="text"placeholder="Country" required /></div> 
+</fieldset>
+    <div class="form-group">
+    <input class="btn btn-outline-info" type="submit" /><br>
+</div>
+</form>
+</div>
+{% endblock %}
